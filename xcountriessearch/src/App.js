@@ -13,7 +13,7 @@ function App() {
         fetch(url).then((response) => response.json().then((data) => {
             setCountries(data);
             setOriginalCountries(data);
-        }));
+        }).catch((error)=> console.log(error)));
     }, []);
 
     const handleSearch = (query) => {

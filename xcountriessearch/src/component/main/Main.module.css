@@ -6,7 +6,7 @@
     margin: 10px;
     flex-wrap: wrap;
 }
-  
+
 .countryCard{
     display: flex;
     flex-direction: column;
