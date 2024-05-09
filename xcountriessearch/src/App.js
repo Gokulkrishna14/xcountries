@@ -21,8 +21,9 @@ function App() {
             setCountries(originalCountries);
         } else {
             const filtered = originalCountries.filter((country) =>
-                country.region.toLowerCase().includes(query.toLowerCase())
+              country.name.common.toLowerCase().includes(query.toLowerCase())
             );
+            console.log(filtered.length);
             setCountries(filtered);
         }
     };
