@@ -10,10 +10,20 @@ function App() {
     const [originalCountries, setOriginalCountries] = useState([]);
 
     useEffect(() => {
-        fetch(url).then((response) => response.json().then((data) => {
-            setCountries(data);
-            setOriginalCountries(data);
-        }).catch((error)=> console.log(error)));
+        fetch(url)
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then((data) => {
+                setCountries(data);
+                setOriginalCountries(data);
+            })
+            .catch((error) => {
+                console.error('Error fetching data:', error);
+            });
     }, []);
 
     const handleSearch = (query) => {
@@ -21,9 +31,8 @@ function App() {
             setCountries(originalCountries);
         } else {
             const filtered = originalCountries.filter((country) =>
-              country.name.common.toLowerCase().includes(query.toLowerCase())
+                country.name.common.toLowerCase().includes(query.toLowerCase())
             );
-            console.log(filtered.length);
             setCountries(filtered);
         }
     };
