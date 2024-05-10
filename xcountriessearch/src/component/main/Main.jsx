@@ -6,7 +6,7 @@ const Main= ({countries}) => {
     return(
         <div className={styles.CountryCard}>
             {countries.map((country, index) => ( 
-                <CountryCard country={country} index={index} />
+                <CountryCard country={country} />
             ))}
         </div>
     )
