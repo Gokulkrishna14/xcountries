@@ -1,3 +1,4 @@
+import CountryCard from "../CountryCard/CountryCard";
 import styles from "./Main.module.css";
 
 const Main= ({countries}) => {
@@ -5,10 +6,7 @@ const Main= ({countries}) => {
     return(
         <div className={styles.main}>
             {countries.map((country, index) => ( 
-                <div key={index} className={styles.countryCard}>
-                    <img src={country.flags.png} alt={country.flags.svg} width={"100px"} height={"100px"} /> 
-                    <h3>{country.name.common}</h3>
-                </div>
+                <CountryCard country={country} index={index} />
             ))}
         </div>
     )
