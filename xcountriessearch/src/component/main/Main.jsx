@@ -4,7 +4,7 @@ import styles from "./Main.module.css";
 const Main= ({countries}) => {
     console.log(countries);
     return(
-        <div className={styles.main}>
+        <div className={styles.CountryCard}>
             {countries.map((country, index) => ( 
                 <CountryCard country={country} index={index} />
             ))}
